@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>http test</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+<!-- Required for browser reporter -->
+<div id="mocha"></div>
+
+<!-- mocha -->
+<script src="../node_modules/mocha/mocha.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    // This will be overridden by mocha-helper if you run with grunt
+    mocha.setup('bdd');
+</script>
+
+<!-- Include your assertion lib of choice -->
+<script src="../node_modules/chai/chai.js" type="text/javascript" charset="utf-8"></script>
+<script src="./sinon-1.15.4.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    // Setup chai
+    var assert = chai.assert;
+
+</script>
+
+<script src="./phantom-tweaks.js"></script>
+
+<!-- Include anything you want to test -->
+<script src="../build/http.1.0.0.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Spec files -->
+<script src="spec/http.test.js" type="text/javascript" charset="utf-8"></script>
+<script src="spec/request.test.js" type="text/javascript" charset="utf-8"></script>
+<script src="spec/response.test.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- run mocha -->
+<script type="text/javascript" charset="utf-8">
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        mocha
+                .run();
+    }
+</script>
+</body>
+</html>
